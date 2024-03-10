@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Dark Toggle By-tech-boy</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        body {
+            background-color: #fff;
+            transition: background-color 0.5s;
+        }
+
+        #mainDiv{
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        div {
+            width: 300px;
+            height: 200px;
+            border-radius: 10px;
+            margin: 200px auto;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+            transition: background-color 0.5s;
+            font-weight: bold;
+        }
+
+        .btn {
+            width: 100px;
+            height: 40px;
+            background-color: aliceblue;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .light_mode {
+            background-color: rgb(242, 202, 37);
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            text-align: center;
+            padding-top: 6px;
+            box-sizing: border-box; 
+            transform: translateX(0px); 
+            transition: 0.5s;
+            cursor: pointer;
+            opacity: 1; 
+            visibility: visible; 
+        }
+
+        .dark_mode {
+            background-color: rgb(37, 183, 240);
+            width: 40px;
+            height: 40px;
+            border-radius: 999px;
+            text-align: center;
+            padding-top: 6px;
+            box-sizing: border-box;
+            transform: translateX(-60px); 
+            opacity: 0; 
+            visibility: hidden; 
+            cursor: pointer;
+            transition: 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div id="mainDiv">
+        <span>Light</span>
+        <div class="btn" onclick="toggleMode()" id="btn_color">
+            <span class="material-symbols-outlined light_mode" id="light_mode">
+                light_mode
+            </span>
+            <span class="material-symbols-outlined dark_mode" id="dark_mode">
+                dark_mode
+            </span>
+        </div>
+        <span>Dark</span>
+    </div>
+
+   <script>
+    function toggleMode() {
+        let mainDiv = document.getElementById("mainDiv");
+        let btn_color = document.getElementById("btn_color");
+        let light_mode = document.getElementById("light_mode");
+        let dark_mode = document.getElementById("dark_mode");
+        let light_text = document.getElementById("light_text");
+        let dark_text = document.getElementById("light_text");
+
+        if (light_mode.style.opacity === "0") {
+            light_mode.style.opacity = "1";
+            light_mode.style.visibility = "visible";
+            light_mode.style.transform = "translateX(0px)";
+            dark_mode.style.opacity = "0";
+            dark_mode.style.visibility = "hidden";
+            dark_mode.style.transform = "translateX(-60px)";
+            mainDiv.style.backgroundColor = "#fff";
+            btn_color.style.backgroundColor = "rgb(249, 237, 182)";
+            light_mode.style.cursor = "pointer";
+            mainDiv.style.color = "#121212"
+        } else {
+            dark_mode.style.opacity = "1";
+            dark_mode.style.visibility = "visible";
+            dark_mode.style.transform = "translateX(0px)";
+            light_mode.style.opacity = "0";
+            light_mode.style.visibility = "hidden";
+            light_mode.style.transform = "translateX(60px)";
+            mainDiv.style.backgroundColor = "#121212";
+            btn_color.style.backgroundColor = "#033246";
+            mainDiv.style.color = "#fff"
+        }
+    }
+   </script>
+</body>
+</html>
